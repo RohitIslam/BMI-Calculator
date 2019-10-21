@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../widgets/reusable_card.dart';
 import '../widgets/reusable_icon_content.dart';
+import '../widgets/round_icon_button.dart';
 
 import '../constances.dart';
 
@@ -142,9 +143,20 @@ class _InputPageState extends State<InputPage> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
