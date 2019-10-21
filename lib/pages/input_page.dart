@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../pages/result_page.dart';
+
 import '../widgets/reusable_card.dart';
 import '../widgets/reusable_icon_content.dart';
 import '../widgets/round_icon_button.dart';
@@ -205,11 +207,25 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            color: kBottomContainerColor,
-            width: double.infinity,
-            height: 80,
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed(
+                ResultPage.routeName,
+              );
+            },
+            child: Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(top: 10),
+              color: kBottomContainerColor,
+              width: double.infinity,
+              height: 80,
+              child: Text(
+                'CALCULATE YOUR BMI',
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            ),
           ),
         ],
       ),
