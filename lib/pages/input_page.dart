@@ -16,7 +16,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  int usersHeight = 90;
+  int usersHeight = 165;
   int usersWeight = 50;
   int usersAge = 20;
 
@@ -128,35 +128,34 @@ class _InputPageState extends State<InputPage> {
                           "WEIGHT",
                           style: kLabelTextStyle,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic,
-                          children: <Widget>[
-                            Text(
-                              usersWeight.toString(),
-                              style: kNumberTextStyle,
-                            ),
-                            Text(
-                              "kg",
-                              style: kLabelTextStyle,
-                            ),
-                          ],
+                        Text(
+                          usersWeight.toString(),
+                          style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
+                              onPress: () {
+                                setState(() {
+                                  usersWeight++;
+                                });
+                              },
                             ),
                             SizedBox(
                               width: 10,
                             ),
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  usersWeight--;
+                                });
+                              },
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -175,8 +174,29 @@ class _InputPageState extends State<InputPage> {
                           usersAge.toString(),
                           style: kNumberTextStyle,
                         ),
-                        SizedBox(
-                          height: 5,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPress: () {
+                                setState(() {
+                                  usersAge++;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  usersAge--;
+                                });
+                              },
+                            ),
+                          ],
                         ),
                       ],
                     ),
