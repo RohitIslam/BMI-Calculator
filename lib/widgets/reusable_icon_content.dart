@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constances.dart';
+
 class ResuableIconContent extends StatelessWidget {
   final IconData fontIcon;
   final String contentText;
@@ -23,10 +25,7 @@ class ResuableIconContent extends StatelessWidget {
         ),
         Text(
           contentText,
-          style: TextStyle(
-            fontSize: 20,
-            color: Color(0xFF808390),
-          ),
+          style: kLabelTextStyle,
         ),
       ],
     );
