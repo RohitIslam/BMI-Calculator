@@ -4,12 +4,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../widgets/reusable_card.dart';
 import '../widgets/reusable_icon_content.dart';
 
+const inActiveCardColor = Color(0xFF1D1F33);
+const activeCardColor = Color(0xFF101533);
+
+enum Gender { male, female }
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,21 +34,33 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    cardColor: Color(0xFF1D1F33),
-                    cardChild: ResuableIconContent(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    cardColor: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild: const ResuableIconContent(
                       fontIcon: FontAwesomeIcons.mars,
                       contentText: "MALE",
-                      contentTextColor: Color(0xFF808390),
                     ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    cardColor: Color(0xFF1D1F33),
-                    cardChild: ResuableIconContent(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    cardColor: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild: const ResuableIconContent(
                       fontIcon: FontAwesomeIcons.venus,
                       contentText: "FEMALE",
-                      contentTextColor: Color(0xFF808390),
                     ),
                   ),
                 ),

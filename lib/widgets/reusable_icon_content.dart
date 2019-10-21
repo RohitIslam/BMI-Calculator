@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 class ResuableIconContent extends StatelessWidget {
   final IconData fontIcon;
   final String contentText;
-  final Color contentTextColor;
 
   const ResuableIconContent({
     @required this.fontIcon,
     @required this.contentText,
-    @required this.contentTextColor,
   });
 
   @override
@@ -27,7 +25,7 @@ class ResuableIconContent extends StatelessWidget {
           contentText,
           style: TextStyle(
             fontSize: 20,
-            color: contentTextColor,
+            color: Color(0xFF808390),
           ),
         ),
       ],
