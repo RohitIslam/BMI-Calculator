@@ -216,14 +216,13 @@ class _InputPageState extends State<InputPage> {
             child: Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(top: 10),
+              // padding: EdgeInsets.only(bottom: 10),
               color: kBottomContainerColor,
               width: double.infinity,
               height: 80,
               child: Text(
                 'CALCULATE YOUR BMI',
-                style: TextStyle(
-                  fontSize: 24,
-                ),
+                style: kLargeButtonTextStyle,
               ),
             ),
           ),
