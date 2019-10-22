@@ -6,6 +6,7 @@ import '../pages/result_page.dart';
 import '../widgets/reusable_card.dart';
 import '../widgets/reusable_icon_content.dart';
 import '../widgets/round_icon_button.dart';
+import '../widgets/bottom_button.dart';
 
 import '../constances.dart';
 
@@ -207,24 +208,13 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          InkWell(
+          BottomButton(
             onTap: () {
               Navigator.of(context).pushNamed(
                 ResultPage.routeName,
               );
             },
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(top: 10),
-              // padding: EdgeInsets.only(bottom: 10),
-              color: kBottomContainerColor,
-              width: double.infinity,
-              height: 80,
-              child: Text(
-                'CALCULATE YOUR BMI',
-                style: kLargeButtonTextStyle,
-              ),
-            ),
+            buttonTitle: 'CALCULATE YOUR BMI',
           ),
         ],
       ),
