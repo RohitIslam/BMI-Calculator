@@ -5,13 +5,16 @@ import '../pages/result_page.dart';
 
 import '../widgets/reusable_card.dart';
 import '../widgets/reusable_icon_content.dart';
-import '../widgets/round_icon_button.dart';
+import '../widgets/reusable_mid_input_card.dart';
 import '../widgets/bottom_button.dart';
 
 import '../constances.dart';
 import '../calculator_brain.dart';
 
-enum Gender { male, female }
+enum Gender {
+  male,
+  female,
+}
 
 class InputPage extends StatefulWidget {
   @override
@@ -125,84 +128,38 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     cardColor: kMidContainerColor,
-                    cardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "WEIGHT",
-                          style: kLabelTextStyle,
-                        ),
-                        Text(
-                          usersWeight.toString(),
-                          style: kNumberTextStyle,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RoundIconButton(
-                              icon: FontAwesomeIcons.plus,
-                              onPress: () {
-                                setState(() {
-                                  usersWeight++;
-                                });
-                              },
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            RoundIconButton(
-                              icon: FontAwesomeIcons.minus,
-                              onPress: () {
-                                setState(() {
-                                  usersWeight--;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
+                    cardChild: ResuableMidInputCard(
+                      cardTitle: "WEIGHT",
+                      cardValue: usersWeight,
+                      onPress1: () {
+                        setState(() {
+                          usersWeight++;
+                        });
+                      },
+                      onPress2: () {
+                        setState(() {
+                          usersWeight--;
+                        });
+                      },
                     ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     cardColor: kMidContainerColor,
-                    cardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "AGE",
-                          style: kLabelTextStyle,
-                        ),
-                        Text(
-                          usersAge.toString(),
-                          style: kNumberTextStyle,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RoundIconButton(
-                              icon: FontAwesomeIcons.plus,
-                              onPress: () {
-                                setState(() {
-                                  usersAge++;
-                                });
-                              },
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            RoundIconButton(
-                              icon: FontAwesomeIcons.minus,
-                              onPress: () {
-                                setState(() {
-                                  usersAge--;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
+                    cardChild: ResuableMidInputCard(
+                      cardTitle: "AGE",
+                      cardValue: usersAge,
+                      onPress1: () {
+                        setState(() {
+                          usersAge++;
+                        });
+                      },
+                      onPress2: () {
+                        setState(() {
+                          usersAge--;
+                        });
+                      },
                     ),
                   ),
                 ),
