@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../pages/result_page.dart';
 
@@ -168,16 +169,48 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onTap: () {
-              CalculatorBrain calB = CalculatorBrain(
-                height: usersHeight,
-                weight: usersWeight,
-              );
+              if (selectedGender == null) {
+                Alert(
+                  style: AlertStyle(
+                    backgroundColor: kScaffoldBackgroundColor,
+                    titleStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 28.0,
+                    ),
+                    descStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22.0,
+                    ),
+                  ),
+                  context: context,
+                  title: "ALERT..!!",
+                  desc: "Please select your gender.",
+                  buttons: [
+                    DialogButton(
+                      child: Text(
+                        "OK",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                      width: 120,
+                      color: kBottomContainerColor,
+                    )
+                  ],
+                ).show();
+              } else {
+                CalculatorBrain calB = CalculatorBrain(
+                  height: usersHeight,
+                  weight: usersWeight,
+                );
 
-              Navigator.of(context).pushNamed(ResultPage.routeName, arguments: {
-                'bmiResult': calB.calculateBMI(),
-                'resultText': calB.getResult(),
-                'resultInterpretation': calB.getResultInterpretation(),
-              });
+                Navigator.of(context)
+                    .pushNamed(ResultPage.routeName, arguments: {
+                  'bmiResult': calB.calculateBMI(),
+                  'resultText': calB.getResult(),
+                  'resultInterpretation': calB.getResultInterpretation(),
+                });
+              }
             },
             buttonTitle: 'CALCULATE YOUR BMI',
           ),

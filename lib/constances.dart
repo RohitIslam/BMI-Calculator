@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // const kInActiveCardColor = Color(0xFF101427);
 // const kActiveCardColor = Color(0xFF1D1F33);
+const kScaffoldBackgroundColor = Color(0xFF090C22);
 const kInActiveCardColor = Color(0xFF1D1F33);
 const kActiveCardColor = Color(0xFF101533);
 const kMidContainerColor = Color(0xFF101427);
