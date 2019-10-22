@@ -9,6 +9,7 @@ import '../widgets/round_icon_button.dart';
 import '../widgets/bottom_button.dart';
 
 import '../constances.dart';
+import '../calculator_brain.dart';
 
 enum Gender { male, female }
 
@@ -210,9 +211,16 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onTap: () {
-              Navigator.of(context).pushNamed(
-                ResultPage.routeName,
+              CalculatorBrain calB = CalculatorBrain(
+                height: usersHeight,
+                weight: usersWeight,
               );
+
+              Navigator.of(context).pushNamed(ResultPage.routeName, arguments: {
+                'bmiResult': calB.calculateBMI(),
+                'resultText': calB.getResult(),
+                'resultInterpretation': calB.getResultInterpretation(),
+              });
             },
             buttonTitle: 'CALCULATE YOUR BMI',
           ),

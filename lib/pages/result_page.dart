@@ -10,6 +10,13 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final routeArgs =
+        ModalRoute.of(context).settings.arguments as Map<String, String>;
+
+    final String bmiResult = routeArgs['bmiResult'];
+    final String resultText = routeArgs['resultText'];
+    final String resultInterpretation = routeArgs['resultInterpretation'];
+
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
@@ -40,7 +47,7 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'NORMAL',
+                    resultText,
                     style: TextStyle(
                       color: Color(0xFF24D276),
                       fontSize: 22,
@@ -48,7 +55,7 @@ class ResultPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '20.5',
+                    bmiResult,
                     style: TextStyle(
                       fontSize: 100,
                       fontWeight: FontWeight.bold,
@@ -71,7 +78,7 @@ class ResultPage extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(15),
                     child: ResultBodyText(
-                      'Your BMI result is quiet low, please eat some healthy food.',
+                      resultInterpretation,
                     ),
                   ),
                 ],
